@@ -1,0 +1,11 @@
+Parameter,Value
+search_terms,"OpenAI API;Python Tutorial;Selenium Tipps"
+headless,True
+driver_path,C:\Users\nicol\OneDrive - TBZ\Github\Python-Scraping\chromedriver.exe
+target_url,https://thomas.stern.ch/
+db_host,localhost
+db_port,5432
+db_user,myuser
+db_password,meinpasswort
+db_name,scrapingdb
+db_table,search_results
