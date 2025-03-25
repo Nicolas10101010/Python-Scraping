@@ -4,26 +4,35 @@ from selenium.webdriver.common.by import By
 import time
 from bs4 import BeautifulSoup
 
-# Set path to ChromeDriver (Replace this with the correct path)
-CHROMEDRIVER_PATH = r"C:/Users/nicol/Desktop/TBZ/M122/chromedriver-win64/chromedriver.exe"  # Change this to match your file location
+# Set path to ChromeDriver (using raw string to handle backslashes)
+CHROMEDRIVER_PATH = r"C:/Users/nicol/Desktop/TBZ/M122/chromedriver-win64/chromedriver.exe"  # Verify this matches your file location
 
 # Initialize WebDriver with Service
 service = Service(CHROMEDRIVER_PATH)
 options = webdriver.ChromeOptions()
-
-
 options.add_argument("--window-size=1920,1080")  # Set window size
 
+try:
+    # Initialize the driver
+    driver = webdriver.Chrome(service=service, options=options)
 
-driver = webdriver.Chrome(service=service, options=options)
+    # Open the specified URL
+    search_url = "https://thomas.stern.ch/"
+    file = "index.html"
+    driver.get(search_url)
 
-# Open Google Search URL
-search_url = "https://thomas.stern.ch/"
+    # Wait for the page to load
+    time.sleep(2)
 
-driver.get(search_url)
+    # Get the page source
+    page_html = driver.page_source
 
-# Wait for the page to load
-time.sleep(2)
+    # Write to file (append mode)
+    with open(file, "a", encoding="utf-8") as f:
+        f.write(page_html)
 
-page_html = driver.page_source
-print(page_html)
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+finally:
+    driver.quit()
