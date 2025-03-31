@@ -22,9 +22,22 @@ def sanitize_filename(url):
     return filename[:50] + ".html"
 
 def setup_environment():
-    """Erstellt benötigte Verzeichnisse"""
+    """Erstellt benötigte Verzeichnisse und Datenbank"""
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
+    
+    # Datenbank mit neuer Struktur initialisieren
+    with sqlite3.connect(DB_NAME) as conn:
+        conn.execute('DROP TABLE IF EXISTS scraped_pages')
+        conn.execute('''
+            CREATE TABLE scraped_pages (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                url TEXT UNIQUE,
+                filename TEXT,
+                html_content TEXT,
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
 
 def init_driver():
     options = webdriver.ChromeOptions()
@@ -33,33 +46,34 @@ def init_driver():
     options.add_argument("--window-size=1920,1080")
     return webdriver.Chrome(service=Service(CHROMEDRIVER_PATH), options=options)
 
-def create_html_report(soup, url, filename):
-    """Erstellt eine strukturierte HTML-Datei"""
-    report_html = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Scraped: {url}</title>
-        <style>
-            body {{ font-family: Arial, sans-serif; margin: 2em; }}
-            .meta {{ color: #666; margin-bottom: 2em; }}
-            iframe {{ width: 100%; height: 600px; border: 1px solid #ddd; }}
-        </style>
-    </head>
-    <body>
-        <h1>Scraping Report</h1>
-        <div class="meta">
-            <p>URL: <a href="{url}">{url}</a></p>
-            <p>Erstellt am: {datetime.now().strftime("%d.%m.%Y %H:%M")}</p>
-        </div>
-        <h2>Vorschau</h2>
-        <iframe srcdoc='{soup.prettify().replace("'", "&#39;")}'></iframe>
-        <h2>Rohdaten</h2>
-        <pre>{soup.prettify()}</pre>
-    </body>
-    </html>
-    """
+def create_html_report(html_content, url, filename):
+    """Erstellt eine vollständige HTML-Reportdatei"""
+    report_html = f"""<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Scraped: {url}</title>
+    <style>
+        body {{ font-family: Arial, sans-serif; margin: 2em; }}
+        .meta {{ color: #666; margin-bottom: 2em; }}
+        pre {{ 
+            background: #f4f4f4;
+            padding: 1em;
+            border-radius: 5px;
+            overflow-x: auto;
+        }}
+    </style>
+</head>
+<body>
+    <h1>Scraping Report</h1>
+    <div class="meta">
+        <p>URL: <a href="{url}">{url}</a></p>
+        <p>Erstellt am: {datetime.now().strftime("%d.%m.%Y %H:%M")}</p>
+    </div>
+    <h2>Vollständiger HTML-Code</h2>
+    <pre>{html_content}</pre>
+</body>
+</html>"""
     
     filepath = os.path.join(OUTPUT_DIR, filename)
     with open(filepath, "w", encoding="utf-8") as f:
@@ -82,31 +96,23 @@ def main():
             EC.presence_of_element_located((By.TAG_NAME, "body"))
         )
         
-        soup = BeautifulSoup(driver.page_source, "html.parser")
+        html_content = driver.page_source
         filename = sanitize_filename(url)
         
-        # Datenbank speichern
         with sqlite3.connect(DB_NAME) as conn:
             conn.execute('''
-                CREATE TABLE IF NOT EXISTS scraped_pages (
-                    id INTEGER PRIMARY KEY,
-                    url TEXT UNIQUE,
-                    filename TEXT,
-                    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
-                )
-            ''')
-            conn.execute('''
-                INSERT INTO scraped_pages (url, filename)
-                VALUES (?, ?)
-            ''', (url, filename))
+                INSERT INTO scraped_pages (url, filename, html_content)
+                VALUES (?, ?, ?)
+            ''', (url, filename, html_content))
         
-        # HTML-Report erstellen
-        saved_path = create_html_report(soup, url, filename)
+        saved_path = create_html_report(html_content, url, filename)
         
         print("\nErfolgreich gespeichert!")
         print(f"- Datenbankeintrag: {DB_NAME}")
         print(f"- HTML-Report: {saved_path}")
-        print(f"- Titel der Seite: {soup.title.string}")
+        
+        soup = BeautifulSoup(html_content, "html.parser")
+        print(f"- Titel der Seite: {soup.title.string if soup.title else 'Kein Titel gefunden'}")
 
     except Exception as e:
         print(f"\nFehler: {str(e)}")
