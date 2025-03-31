@@ -199,6 +199,6 @@ https://thomas.stern.ch/ → thomas_stern_ch.html
 
 ---
 
-**Version:** 1.0  
-**Autor:** Nicolas10101010
+**Version:** 2.1  
+**Autor:** Nicolas Manser
 
