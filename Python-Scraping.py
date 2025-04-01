@@ -1,15 +1,15 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+from selenium import webdriver #steuert den browser
+from selenium.webdriver.chrome.service import Service #verwaltet browser
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup #Parsed HTML, um Inhalte einfacher zu extrahieren.
 import sqlite3
-import os
-import re
+import os #Interaktion mit dem Dateisystem
+import re #Text filtern, Strings umwandeln
 from datetime import datetime
 
-# Konfiguration
+#Konfiguration
 CHROMEDRIVER_PATH = r"C:\Users\nicol\Desktop\TBZ\M122\chromedriver-win64\chromedriver.exe"
 OUTPUT_DIR = "scraped_pages"
 DB_NAME = "portfolio.db"
@@ -25,8 +25,8 @@ def setup_environment():
     """Erstellt benötigte Verzeichnisse und Datenbank"""
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
-    
-    # Datenbank mit neuer Struktur initialisieren
+    #Datenbank mit neuer Struktur initialisieren
+
     with sqlite3.connect(DB_NAME) as conn:
         conn.execute('DROP TABLE IF EXISTS scraped_pages')
         conn.execute('''
@@ -77,33 +77,34 @@ def create_html_report(html_content, url, filename):
     
     filepath = os.path.join(OUTPUT_DIR, filename)
     with open(filepath, "w", encoding="utf-8") as f:
-        f.write(report_html)
+        f.write(report_html) #speichert file
     return filepath
 
 def main():
     setup_environment()
     
-    url = input("Bitte URL eingeben: ").strip()
+    url = input("Bitte URL eingeben: ").strip() #eingabeaufforderung
     if not url.startswith(("http://", "https://")):
         url = f"https://{url}"
 
     driver = init_driver()
     try:
         print(f"\nScrape: {url}")
-        driver.get(url)
+        driver.get(url) 
         
-        WebDriverWait(driver, 15).until(
+        WebDriverWait(driver, 15).until( # Prüft, ob ein HTML-Element mit dem Tag <body> vorhanden ist.
             EC.presence_of_element_located((By.TAG_NAME, "body"))
         )
         
-        html_content = driver.page_source
-        filename = sanitize_filename(url)
+        html_content = driver.page_source #holt contenct der Website aus Selenium
+        filename = sanitize_filename(url) #entfernt unnötiges im Dateinamen
         
-        with sqlite3.connect(DB_NAME) as conn:
+        with sqlite3.connect(DB_NAME) as conn: #datenbankverbindung und sorgt dass die verbindung automatisch geschlossen wird
             conn.execute('''
                 INSERT INTO scraped_pages (url, filename, html_content)
                 VALUES (?, ?, ?)
-            ''', (url, filename, html_content))
+            ''', (url, filename, html_content)) #fügt Daten in Datenbank ein
+            conn.commit()
         
         saved_path = create_html_report(html_content, url, filename)
         
