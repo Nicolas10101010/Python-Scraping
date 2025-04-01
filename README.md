@@ -218,6 +218,6 @@ Würde ich dieses Projekt nochmals durchführen, würde ich definitiv die Unterr
 
 --- 
 
-**Version:** 2.1  
+**Version:** 2.3  
 **Autor:** Nicolas Manser
 
