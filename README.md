@@ -7,12 +7,13 @@ Dieses Projekt ermöglicht das automatische Scraping von Webseiteninhalten und s
 Es wurde für die **LB1** entwickelt und kombiniert **Selenium mit SQLite** für eine robuste Datenspeicherung.
 
 ## **Inhaltsverzeichnis**
-1. [Hauptfunktionen](#hauptfunktionen)
-2. [Installation](#installation)
+1. [Ziele](#ziele)
+2. [Hauptfunktionen](#hauptfunktionen)
+3. [Installation](#installation)
    - [Voraussetzungen](#voraussetzungen)
    - [Schritte](#schritte)
-3. [Konfiguration](#konfiguration)
-4. [Erklärung des Programmes](#erklärung-des-programmes)
+4. [Konfiguration](#konfiguration)
+5. [Erklärung des Programmes](#erklärung-des-programmes)
    - [Startvorbereitung](#startvorbereitung)
    - [Datenbank-Setup](#datenbank-setup)
    - [Browser starten](#browser-starten)
@@ -23,6 +24,16 @@ Es wurde für die **LB1** entwickelt und kombiniert **Selenium mit SQLite** für
    - [Datenbankspeicherung](#datenbankspeicherung)
    - [HTML-Report erstellen](#html-report-erstellen)
    - [Fehlerbehandlung](#fehlerbehandlung)
+
+---
+
+## **Ziele**
+- Ein Python-Scraper in python erstellen der funktioniert
+- Es sollte die Werte in einem externen File speichern
+- Es sollte gutes Problem-handling haben
+- Allgemeine wie die Uhrzeit des Scrapes Daten des Scrapes sollen gespeichert werden
+- Die Daten des Scrapes sollen in einer Datenbank gespeichert werden
+- Eventuell soll ein GUI existieren
 
 ---
 
