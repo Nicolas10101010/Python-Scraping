@@ -24,11 +24,13 @@ Es wurde für die **LB1** entwickelt und kombiniert **Selenium mit SQLite** für
    - [Datenbankspeicherung](#datenbankspeicherung)
    - [HTML-Report erstellen](#html-report-erstellen)
    - [Fehlerbehandlung](#fehlerbehandlung)
+6. [Reflexion](#reflexion)
+
 
 ---
 
 ## **Ziele**
-- Ein Python-Scraper in python erstellen der funktioniert
+- Ein Python-Scraper in Python erstellen der funktioniert
 - Es sollte die Werte in einem externen File speichern
 - Es sollte gutes Problem-handling haben
 - Allgemeine wie die Uhrzeit des Scrapes Daten des Scrapes sollen gespeichert werden
@@ -209,6 +211,12 @@ https://thomas.stern.ch/ → thomas_stern_ch.html
 - **Netzwerkprobleme**  
 
 ---
+
+## **Reflexion**
+Ich finde ich habe meine Projektziele erstaunlich gut erreicht, manchmal sind grosse Probleme aufgekommen wie zum Beispiel beim importieren der Daten in eine Datenbank oder beim hinzufügen eines GUI. Vorallem beim GUI hatte ich riesige Probleme, vorher ging das Programm noch, aber mit dem implementieren des GUI funktionierte nichts mehr. Hätte ich mehr Zeit würde ich definitiv noch mehr mit dem GUI herumprobieren, sodass es schlussendlich auch funktionieren würde. Ich finde es gleichzeitig schade und toll, dass dieses Projekt nicht wirklich eine Partnerarbeit ist, mit einer Partnerarbeit hätte man die Aufgaben besser verteilen können, aber gleichzeitig verstehe ich nun den Python Scraper besser als wenn ich es als Partnerprojekt gemacht hätte.
+Würde ich dieses Projekt nochmals durchführen, würde ich definitiv die Unterrichtszeit besser einteilen und dann auch mehr aufpassen, da ich beim Start der LB1 ziemlich ins kalte Wasser geworfen wurde.
+
+--- 
 
 **Version:** 2.1  
 **Autor:** Nicolas Manser
