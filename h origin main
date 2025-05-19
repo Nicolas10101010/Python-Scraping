@@ -1,0 +1,152 @@
+[33mcommit b23de664fe035781f66b75407de75610c26a2a15[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Wed Oct 15 11:55:39 2025 +0200
+Commit:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+CommitDate: Wed Oct 15 11:55:39 2025 +0200
+
+    Test
+
+[33mcommit 3dec0afe925d20c0ea1de5ac3ff49940689b5311[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Thu Apr 17 13:17:12 2025 +0200
+Commit:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+CommitDate: Thu Apr 17 13:17:12 2025 +0200
+
+    Small Updates
+
+[33mcommit 151f103155be8bc9d2385bbbb1d6bbaadaec5644[m
+Merge: 1b0e4e6 34ca875
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Tue Apr 1 10:16:14 2025 +0200
+Commit:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+CommitDate: Tue Apr 1 10:16:14 2025 +0200
+
+    Merge branch 'main' of https://github.com/Nicolas10101010/Python-Scraping
+
+[33mcommit 1b0e4e69a9b55108ae1835b8fa3a9ce4a3c0e06a[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Tue Apr 1 10:16:11 2025 +0200
+Commit:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+CommitDate: Tue Apr 1 10:16:11 2025 +0200
+
+    Updated Files
+    
+    I updated Codes and also fixed some things.
+
+[33mcommit 34ca875972bddf067f425e1455b975d22cd558fb[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Tue Apr 1 08:28:17 2025 +0200
+Commit:     GitHub <noreply@github.com>
+CommitDate: Tue Apr 1 08:28:17 2025 +0200
+
+    Update README.md
+    
+    Updated Documentation Version from 2.1 to 2.3
+
+[33mcommit 8da8a0c767fc421ae46b3f1d41e28c72df0be41d[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Tue Apr 1 08:27:41 2025 +0200
+Commit:     GitHub <noreply@github.com>
+CommitDate: Tue Apr 1 08:27:41 2025 +0200
+
+    Update README.md
+    
+    Created a "Reflexion", for more insight on how i want to do things on future projects.
+
+[33mcommit eed98a1aa80f08f4f873208bbae500a8c6519121[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Tue Apr 1 08:17:25 2025 +0200
+Commit:     GitHub <noreply@github.com>
+CommitDate: Tue Apr 1 08:17:25 2025 +0200
+
+    Update README.md
+    
+    Added Goals in the Documentation
+
+[33mcommit d81e95fe42f4e0fb34559d97f7e38c4d7f04540e[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Mon Mar 31 22:27:06 2025 +0200
+Commit:     GitHub <noreply@github.com>
+CommitDate: Mon Mar 31 22:27:06 2025 +0200
+
+    Update README.md
+
+[33mcommit 0acf2642cc6044f7e878357c7f37e4d0de8c6c4a[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Mon Mar 31 22:24:28 2025 +0200
+Commit:     GitHub <noreply@github.com>
+CommitDate: Mon Mar 31 22:24:28 2025 +0200
+
+    Update README.md
+    
+    Added formations and better design
+
+[33mcommit 94ced5832f2a4b23d26061c036b8d577f807989b[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Mon Mar 31 22:03:33 2025 +0200
+Commit:     GitHub <noreply@github.com>
+CommitDate: Mon Mar 31 22:03:33 2025 +0200
+
+    Create README.md
+    
+    Added Documentation of LB1
+
+[33mcommit f73320febfae0c50a9e9431e246a6d47be6047dc[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Mon Mar 31 21:55:03 2025 +0200
+Commit:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+CommitDate: Mon Mar 31 21:55:03 2025 +0200
+
+    Updated Files
+    
+    Added functions and also .db files
+
+[33mcommit 89acf7e7e95bef775afad47f937e8e623b37bad9[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Mon Mar 31 21:30:47 2025 +0200
+Commit:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+CommitDate: Mon Mar 31 21:30:47 2025 +0200
+
+    Updated Files
+    
+    I updated these files for better use and more functions, see Python-Scraping which is the main programm
+
+[33mcommit b70f8ae4fa5333612f7a4c8836ceea302d490b6b[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Tue Mar 25 10:55:18 2025 +0100
+Commit:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+CommitDate: Tue Mar 25 10:55:18 2025 +0100
+
+    Updated search.py
+    
+    I added the Feature of creating a new .html file for the scraps.
+
+[33mcommit 5c968611fa7903d144665abda46d9d00eef2e514[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Tue Mar 25 09:40:12 2025 +0100
+Commit:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+CommitDate: Tue Mar 25 09:40:12 2025 +0100
+
+    Added Search.py
+    
+    For the LB1, i restarted the tutorial and tested the code for better understanding.
+
+[33mcommit 829ba93fde21d3ea16450548c4c97f5962e4d6b7[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Wed Mar 19 10:54:28 2025 +0100
+Commit:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+CommitDate: Wed Mar 19 10:54:28 2025 +0100
+
+    Added Code to Python-Scraper
+    
+    For the Modul 122 i made a Python-Scraper, this is an sketch of the Code made by AI.
+
+[33mcommit 0e38de1c4963ff25eff10a5ded095147c9cda12d[m
+Author:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+AuthorDate: Tue Mar 18 09:41:15 2025 +0100
+Commit:     Nicolas10101010 <nicolas.manser@edu.tbz.ch>
+CommitDate: Tue Mar 18 09:41:15 2025 +0100
+
+    Added Python-Scraping File
+    
+    This will be the File that contains the future Scraping-Code
